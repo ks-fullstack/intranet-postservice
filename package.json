@@ -1,0 +1,51 @@
+{
+  "name": "intranet-postservice",
+  "version": "1.0.0",
+  "description": "Micro service to create, upadet, delete and view post",
+  "main": "src/main.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "rimraf ./dist",
+    "coverage": "nyc npm run test",
+    "dev": "nodemon src/main.ts",
+    "start": "node dist/main.js",
+    "test": "npx mocha --require ts-node/register src/specs/**/*.spec.ts --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ks-fullstack/intranet-postservice.git"
+  },
+  "keywords": [
+    "post-microservice"
+  ],
+  "author": "Krishna Sawant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ks-fullstack/intranet-postservice/issues"
+  },
+  "homepage": "https://github.com/ks-fullstack/intranet-postservice#readme",
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/chai": "^5.0.0",
+    "@types/express": "^5.0.0",
+    "@types/helmet": "^0.0.48",
+    "@types/mocha": "^10.0.9",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.7.5",
+    "@types/supertest": "^6.0.2",
+    "chai": "^4.3.10",
+    "mocha": "^10.7.3",
+    "nodemon": "^3.1.7",
+    "nyc": "^17.1.0",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.7.1"
+  }
+}
