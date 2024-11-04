@@ -1,5 +1,6 @@
 import { Express } from "express";
 import { IRoutes } from "../interface/router.interface";
+import healthRouter from "./health.router";
 import likeRoutes from "./like.router";
 import postRoutes from "./post.router";
 
@@ -8,6 +9,10 @@ class MainRoute {
 
   constructor(apiBasePath: string) {
     this.apiRoutes = [
+      {
+        path: "/",
+        router: healthRouter.router,
+      },
       {
         path: apiBasePath + "/post",
         router: postRoutes.router,
