@@ -7,14 +7,15 @@ import errorHandler from "./error.handler";
 import SecurityMiddleware from "./security";
 
 class ExpressApp {
-  private static instance: ExpressApp;
-  public app: Express = express();
+  private static _instance: ExpressApp = new ExpressApp();
+  public app: Express;
+
+  constructor() {
+    this.app = express();
+  }
 
   public static getInstance(): ExpressApp {
-    if (!ExpressApp.instance) {
-      ExpressApp.instance = new ExpressApp();
-    }
-    return ExpressApp.instance;
+    return ExpressApp._instance;
   }
 
   public async connectApp() {

@@ -3,17 +3,10 @@ import { IDBSettings } from "../interface/config.interface";
 import APIConfig from "../utils/config";
 
 class MongoConnection {
-  private static _instance: MongoConnection;
-  private static _connect: Connection = mongoose.connection;
+  private static _instance: MongoConnection = new MongoConnection();
+  private static _connect: Connection;
   private connectionStr: string;
   private options: IDBSettings;
-
-  public static getInstance(): MongoConnection {
-    if (!MongoConnection._instance) {
-      MongoConnection._instance = new MongoConnection();
-    }
-    return MongoConnection._instance;
-  }
 
   constructor() {
     const username = APIConfig.config.dbUsername;
@@ -24,6 +17,8 @@ class MongoConnection {
         .replace("$password$", password).replace("$dbname$", dbName);
     console.log(this.connectionStr);
     this.options = APIConfig.config.dbSettings;
+
+    MongoConnection._connect = mongoose.connection;
 
     MongoConnection._connect.on("connected", () => {
       console.log("MongoDb Connection Established");
@@ -45,7 +40,11 @@ class MongoConnection {
       console.log("MongoDB Connection Error: ", error);
     });
   }
-  
+
+  public static getInstance(): MongoConnection {
+    return MongoConnection._instance;
+  }
+
   public async connectDB() {
     await mongoose.connect(this.connectionStr, this.options);
   }
