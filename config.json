@@ -4,6 +4,7 @@
     "dbName": "intranet",
     "dbUsername": "ksfullstack",
     "dbPassword": "Fu11stack",
+    "disableLogs": true,
     "dbSettings": {
         "connectTimeoutMS": 5000, 
         "socketTimeoutMS": 20000, 

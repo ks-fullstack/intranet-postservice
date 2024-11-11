@@ -24,6 +24,7 @@ export interface IConfig {
   dbUsername: string;
   dbPassword: string;
   dbSettings: IDBSettings;
+  disableLogs: boolean;
   securitySettings: ISecuritySettings;
   serviceName: string;
 }

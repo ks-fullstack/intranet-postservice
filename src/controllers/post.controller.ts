@@ -10,7 +10,7 @@ class PostController {
 
   public getOne(req: Request, res: Response, next: NextFunction) {
     try {
-      auditService.create(req, serviceName);
+      auditService.create(req, serviceName, APIConfig.config.disableLogs);
       postService.getOne(req).then((result) => {
         responseHandler(res, result);
       }).catch((err) => {
@@ -23,7 +23,7 @@ class PostController {
 
   public getAll(req: Request, res: Response, next: NextFunction) {
     try {
-      auditService.create(req, serviceName);
+      auditService.create(req, serviceName, APIConfig.config.disableLogs);
       postService.getAll(req).then((result) => {
         responseHandler(res, result);
       }).catch((err) => {
@@ -36,7 +36,7 @@ class PostController {
 
   public getCount(req: Request, res: Response, next: NextFunction) {
     try {
-      auditService.create(req, serviceName);
+      auditService.create(req, serviceName, APIConfig.config.disableLogs);
       postService.getCount(req).then((result) => {
         responseHandler(res, result);
       }).catch((err) => {
@@ -49,7 +49,7 @@ class PostController {
 
   public create(req: Request, res: Response, next: NextFunction) {
     try {
-      auditService.create(req, serviceName);
+      auditService.create(req, serviceName, APIConfig.config.disableLogs);
       postService.create(req).then((result) => {
         responseHandler(res, result);
       }).catch((err) => {
@@ -62,7 +62,7 @@ class PostController {
 
   public update(req: Request, res: Response, next: NextFunction) {
     try {
-      auditService.create(req, serviceName);
+      auditService.create(req, serviceName, APIConfig.config.disableLogs);
       postService.update(req).then((result) => {
         responseHandler(res, result);
       }).catch((err) => {
@@ -75,7 +75,7 @@ class PostController {
 
   public delete(req: Request, res: Response, next: NextFunction) {
     try {
-      auditService.create(req, serviceName);
+      auditService.create(req, serviceName, APIConfig.config.disableLogs);
       postService.delete(req).then((result) => {
         responseHandler(res, result);
       }).catch((err) => {
