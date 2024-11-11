@@ -4,11 +4,11 @@
   "description": "Micro service to create, upadet, delete and view post",
   "main": "src/main.ts",
   "scripts": {
-    "build": "tsc --build",
+    "build": "rimraf ./dist && tsc --build",
     "clean": "rimraf ./dist",
     "coverage": "nyc npm run test",
     "dev": "nodemon src/main.ts",
-    "start": "node dist/main.js",
+    "start": "npm run build && node dist/main.js",
     "test": "npx mocha --require ts-node/register src/specs/**/*.spec.ts --exit"
   },
   "repository": {
