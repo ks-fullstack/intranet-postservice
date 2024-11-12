@@ -3,7 +3,8 @@ import express, { Express } from "express";
 import MongoConnection from "../db/mongo-connection";
 import Routes from "../routers/router";
 import APIConfig from "./config";
-import errorHandler from "./error.handler";
+import errorInterceptor from "./error.interceptor";
+import requestInterceptor from "./request.interceptor";
 import SecurityMiddleware from "./security";
 
 class ExpressApp {
@@ -28,12 +29,15 @@ class ExpressApp {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
 
+    // Global request interceptor
+    this.app.use(requestInterceptor);
+
     // Routing
     const routes = new Routes(APIConfig.config.apiBasePath);
     routes.initializeRouting(this.app);
 
-    // Global error handler
-    this.app.use(errorHandler);
+    // Global error interceptor
+    this.app.use(errorInterceptor);
   }
 }
 
