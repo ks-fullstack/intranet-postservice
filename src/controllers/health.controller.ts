@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { IServiceResponse } from "../interface/common.interface";
 import APIConfig from "../utils/config";
-import responseHandler from "../utils/response.handler";
+import responseHandler from "../utils/response.interceptor";
 
 const serviceName = APIConfig.config.serviceName;
 
