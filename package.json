@@ -4,8 +4,8 @@
   "description": "Micro service to create, upadet, delete and view post",
   "main": "src/main.ts",
   "scripts": {
-    "build": "rimraf ./dist && tsc --build",
-    "clean": "rimraf ./dist",
+    "build": "npm run clean && tsc --build",
+    "clean": "rimraf ./dist ./.nyc_coverage ./.nyc_output",
     "coverage": "nyc npm run test",
     "dev": "nodemon src/main.ts",
     "start": "npm run build && node dist/main.js",
