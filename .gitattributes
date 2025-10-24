@@ -1,0 +1,2 @@
+*.ts linguist-language=TypeScript
+package.json linguist-detectable=true
