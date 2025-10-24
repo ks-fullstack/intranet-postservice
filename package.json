@@ -16,7 +16,11 @@
     "url": "git+https://github.com/ks-fullstack/intranet-postservice.git"
   },
   "keywords": [
-    "post-microservice"
+    "postservice",
+    "post-microservice",
+    "post-service",
+    "intranet-postservice",
+    "post-api"
   ],
   "author": "Krishna Sawant",
   "license": "ISC",
